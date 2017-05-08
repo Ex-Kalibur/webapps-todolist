@@ -1,0 +1,15 @@
+<section ng-app="todo-app" ng-repeat="task in tasks | taskCompletion:false">
+    <article class="todo" class="panel-inset">
+        <input type="checkbox" class="todo-checkbox center" ng-model="task.taskComp" ng-click="completeTask(task)">
+
+        <div class="todo-center">
+        <div class="todo-name">{{console.log(task.taskName); task.taskName}}</div>
+            <div class="todo-desc">{{task.taskDesc}}</div>
+        </div>
+        <div class="todo-delete center-text">
+            <i class="material-icons center center-vertical" ng-click="deleteTask(task)">&#xE14C;</i>
+        </div>
+    </article>
+
+    <div class="divider"></div>
+</section>

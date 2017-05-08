@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>CPS630 - Lab 4 - AngularJS</title>
+
+    <meta name=viewport content="width=device-width, initial-scale=1"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/global-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/theme.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+    <link rel="icon" type="image/png" href="img/favicon.png"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+</head>
+
+<body ng-app="todo-app" ng-controller="todo-ctrl">
+    <script src="js/todo-app.js"></script>
+    <script src="js/todo-ctrl.js"></script>
+
+    <nav>
+        <ul>
+            <li class="active header-element"><a class="smallCaps">Home</a></li>
+            <li class="header-element"><a class="smallCaps" href="">About</a></li>
+            <li class="header-element"><a class="smallCaps" href="../">Labs</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="section-new" class="panel">
+            <header>
+                <div class="ribbon"></div>
+                <h3 class="header-section smallCaps">Note:</h3>
+            </header>
+            If using accessing this page locally using Chrome, the flag <code>--allow-file-access-from-files</code> must be enabled.
+        </section>
+
+        <section id="section-new" class="panel">
+            <header>
+                <div class="ribbon"></div>
+                <h3 class="header-section smallCaps">Create ToDo List</h3>
+            </header>
+
+            <section id="section-new-options">
+                <div id="options-new-wrapper" class="option center-text" ng-click="newToDo()">
+                    <div id="options-new" class="option center center-text center-vertical">
+                        <i id="new-icon" class="material-icons center center-vertical">&#xE145;</i>
+                        New ToDo
+                    </div>
+                </div>
+                <div id="options-drag-and-drop-wrapper" class="option center-text" dropzone>
+                    <div id="options-drag-and-drop" class="option center center-text center-vertical">
+                        <i id="upload-icon" class="material-icons center center-vertical">&#xE2C6;</i>
+                        <div id="upload-text">
+                            Upload File
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="section-todo" class="panel" ng-show="show">
+            <header>
+                <div class="ribbon"></div>
+                <h3 class="header-section smallCaps">TODO</h3>
+            </header>
+
+            <section id="section-list" ng-include="'todo-list.htm'">
+
+            </section>
+
+            <section class="container-float">
+                Add a new Task:
+                <form>
+                    <div class="input-container">
+                        <label class="input-label" for="task-name">Name:</label>
+                        <input id="task-name" type="text" class="input" ng-model="newTaskName"/>
+                    </div>
+                    <div class="input-container">
+                        <label class="input-label" for="task-desc">Description:</label>
+                        <input id="task-desc" type="text" class="input" ng-model="newTaskDesc"/>
+                    </div>
+                    <input id="submit" type=submit value="Add Task" ng-click="addNewTask()"/>
+                </form>
+            </section>
+        </section>
+
+        <section id="section-todo-complete" class="panel" ng-show="show">
+            <header>
+                <div class="ribbon"></div>
+                <h3 class="header-section smallCaps">Complete</h3>
+            </header>
+
+            <section id="section-list-complete" ng-include="'todo-list-complete.htm'">
+
+            </section>
+        </section>
+    </main>
+    <footer>
+        <details class="smallCaps">
+            <summary>&copy; 2017</summary>
+            <div>Christopher Collins #########</div>
+        </details>
+    </footer>
+</body>
+
+</html>
