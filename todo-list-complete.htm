@@ -1,0 +1,13 @@
+<section ng-app="todo-app" ng-repeat="task in tasks | taskCompletion:true">
+    <article class="todo" class="panel-inset">
+        <div class="todo-center-complete">
+            <div class="todo-name">{{task.taskName}}</div>
+            <div class="todo-desc">{{task.taskDesc}}</div>
+        </div>
+        <div class="todo-delete center-text">
+            <i class="material-icons center center-vertical" ng-click="deleteTask(task)">&#xE14C;</i>
+        </div>
+    </article>
+
+    <div class="divider"></div>
+</section>
